@@ -57,6 +57,10 @@ const DogBreeds = () => {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      <div className='flex flex-row-reverse items-center justify-end'>
+        <h1>Dog App</h1>
+        <Image src="/images/dog.svg" alt="Example SVG" width={100} height={100} />
+      </div>
       <h1>Breeds</h1>
       <h2>Selected Breed: {breed}</h2>
       <div className="flex flex-wrap">

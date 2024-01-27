@@ -41,14 +41,14 @@ const Breeds = () => {
   }, []);
 
   return (
-    <div>
-      <h1>List of Dog Breeds</h1>
-      <ul>
+    <div className='p-4 lg:p-20 pt-0 lg:pt-0'>
+      <h2 className='mb-4'>List of Dog Breeds</h2>
+      <ul className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
         {breeds.map((breed) => (
           <li key={breed}>
             <Link href={`/${encodeURIComponent(breed)}`}>
               <a>
-                <img src={breedImages[breed]} alt={breed} width="50" height="50" />
+                <img className='object-cover w-full h-48 rounded-md' src={breedImages[breed]} alt={breed} />
                 {breed}
               </a>
             </Link>
