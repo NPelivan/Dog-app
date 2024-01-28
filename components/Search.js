@@ -10,14 +10,14 @@ const Search = ({ onSearch }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-4 lg:mb-8">
       <input
         type="text"
         placeholder="Search for a breed"
         value={searchTerm}
         onChange={handleInputChange}
-        className="p-2 border rounded-md"
-      />
+        className="w-full pl-7 p-2 bg-transparent border-b border-gray-500 focus:outline-none "
+    />
     </div>
   );
 };

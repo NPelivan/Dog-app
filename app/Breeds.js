@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Search from '@/components/Search';
+import styles from './HoverEffect.module.css';
 
 async function getBreedImage(breed) {
   const response = await fetch(`https://dog.ceo/api/breed/${breed}/images/random/1`);
@@ -63,25 +64,38 @@ const Breeds = () => {
     <div className="p-4 lg:p-20 pt-0 lg:pt-0">
       <h2 className="mb-4">List of Dog Breeds</h2>
 
+       <div className='relative'>
+         <svg
+           className='absolute bottom-2.5'
+          width="20"
+          height="20"
+          viewBox="0 0 20 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.51667 1.11111C4.52795 1.11111 1.29445 4.34461 1.29445 8.33333C1.29445 12.3221 4.52795 15.5556 8.51667 15.5556C12.5054 15.5556 15.7389 12.3221 15.7389 8.33333C15.7389 4.34461 12.5054 1.11111 8.51667 1.11111ZM8.51668 2.25C10.9777 2.24775 13.1976 3.72848 14.1409 6.00149C15.0842 8.2745 14.5651 10.892 12.8258 12.6329C11.0864 14.3739 8.46939 14.8954 6.19553 13.9541C3.92166 13.0129 2.4389 10.7943 2.4389 8.33333C2.45408 4.98208 5.16543 2.26825 8.51668 2.25ZM14.7945 13.8167L18.8889 17.9389C19.0288 18.0798 19.0829 18.2847 19.0309 18.4763C18.9788 18.668 18.8284 18.8173 18.6364 18.868C18.4444 18.9187 18.2399 18.8631 18.1 18.7222L14.0056 14.6L14.7945 13.8167Z" fill="black"/>
+          </svg>
+         <Search onSearch={handleSearch} />
+        </div>
 
-      <Search onSearch={handleSearch} />
-
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {filteredBreeds.map((breed) => (
-          <li key={breed}>
-            <Link href={`/${encodeURIComponent(breed)}`}>
-              <a>
-                <img
-                  className="object-cover w-full h-48 rounded-md"
-                  src={breedImages[breed]}
-                  alt={breed}
-                />
-                {breed}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 gap-y-6 lg:gap-y-8">
+  {filteredBreeds.map((breed) => (
+    <li key={breed}>
+      <Link href={`/${encodeURIComponent(breed)}`}>
+        <a className={styles.zoomOnHover}>
+          <div className="relative overflow-hidden rounded-md">
+            <img
+              src={breedImages[breed]}
+              alt={breed}
+              className="object-cover w-full h-48 lg:h-64 rounded-md"
+            />
+          </div>
+          <p className="capitalize mt-1 lg:mt-2">{breed}</p>
+        </a>
+      </Link>
+    </li>
+  ))}
+</ul>
     </div>
   );
 };

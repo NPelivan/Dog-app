@@ -1,0 +1,11 @@
+
+@media screen and (min-width: 1024px) {
+    .zoomOnHover img {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .zoomOnHover:hover img {
+    transform: scale(1.2);
+    }
+
+}
