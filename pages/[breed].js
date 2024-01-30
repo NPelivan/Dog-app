@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Pagination from '../components/Pagination';
+import Header from '@/components/Header';
 
 async function getDogs(breed, page = 1, imagesPerPage = 20) {
   const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
@@ -56,23 +57,27 @@ const DogBreeds = () => {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Breeds</h1>
-      <h2>Selected Breed: {breed}</h2>
-      <div className="flex flex-wrap">
-        {dogs.map((imageUrl, index) => (
-          <div key={index} className="m-2">
-            <Image src={imageUrl} width="200" height="200" alt={`dog-${index}`} priority />
-          </div>
-        ))}
+    <div>
+    <Header />
+<main className="p-4 pt-0 lg:p-20 lg:pt-0 lg:mt-10">
+  <h2 className="capitalize text-2xl lg:text-3xl xl:text-4xl font-bold mb-4">Selected Breed: {breed}</h2>
+  <div className="grid grid-cols-2 gap-3 gap-y-7 lg:grid-cols-4 lg:gap-y-8 lg:gap-4">
+    {dogs.map((imageUrl, index) => (
+      <div key={index} className="object-cover w-full rounded-md">
+        <img src={imageUrl} className="object-cover w-full h-48 lg:h-80 rounded-md" alt={`dog-${index}`} />
       </div>
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onNextPage={handleNextPage}
-        onPrevPage={handlePrevPage}
-      />
-    </main>
+    ))}
+  </div>
+  <Pagination
+    currentPage={currentPage}
+    totalPages={totalPages}
+    onNextPage={handleNextPage}
+    onPrevPage={handlePrevPage}
+  />
+</main>
+
+
+      </div>
   );
 };
 

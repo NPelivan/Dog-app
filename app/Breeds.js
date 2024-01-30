@@ -78,7 +78,7 @@ const Breeds = () => {
          <Search onSearch={handleSearch} />
         </div>
 
-      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 gap-y-6 lg:gap-y-8">
+      <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4 gap-y-6 lg:gap-y-10 lg:gap-6">
   {filteredBreeds.map((breed) => (
     <li key={breed}>
       <Link href={`/${encodeURIComponent(breed)}`}>
@@ -87,10 +87,10 @@ const Breeds = () => {
             <img
               src={breedImages[breed]}
               alt={breed}
-              className="object-cover w-full h-48 lg:h-64 rounded-md"
+              className="object-cover w-full h-48 lg:h-80 rounded-md"
             />
           </div>
-          <p className="capitalize mt-1 lg:mt-2">{breed}</p>
+          <p className="capitalize mt-1 lg:mt-2 text-2xl">{breed}</p>
         </a>
       </Link>
     </li>
