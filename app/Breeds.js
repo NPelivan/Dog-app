@@ -62,7 +62,7 @@ const Breeds = () => {
 
    return (
     <div className="p-4 lg:p-20 pt-0 lg:pt-0">
-      <h2 className="mb-4">List of Dog Breeds</h2>
+      <h2 className="mb-4 lg:text-3xl font-semibold">List of Dog Breeds</h2>
 
        <div className='relative'>
          <svg
