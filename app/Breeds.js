@@ -90,7 +90,7 @@ const Breeds = () => {
               className="object-cover w-full h-48 lg:h-80 rounded-md"
             />
           </div>
-          <p className="capitalize mt-1 lg:mt-2 text-2xl">{breed}</p>
+          <p className="capitalize mt-1 lg:mt-2 lg:text-2xl">{breed}</p>
         </a>
       </Link>
     </li>
